@@ -139,7 +139,7 @@ class GPSettingsComponentState extends State<GPSettingsComponent> with SingleTic
                         ).onTap(() {
                           referralCode.copyToClipboard();
 
-                          _scaffoldKey.currentState!.showSnackBar(SnackBar(content: Text('$referralCode Copied to ClipBoard')));
+                          // _scaffoldKey.currentState!.showSnackBar(SnackBar(content: Text('$referralCode Copied to ClipBoard')));
                         })
                       ],
                     ).expand(),
