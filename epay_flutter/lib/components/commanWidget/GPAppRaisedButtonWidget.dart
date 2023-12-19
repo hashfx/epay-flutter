@@ -34,9 +34,9 @@ class AppRaisedButton extends StatelessWidget {
     return Container(
       width: width,
       height: height,
-      child: RaisedButton(
-          color: color,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadius)),
+      child: ElevatedButton(
+          // color: color,
+          // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadius)),
           child: title != null
               ? Text(
                   title!,

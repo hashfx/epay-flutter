@@ -110,13 +110,13 @@ class BusinessesComponentState extends State<BusinessesComponent> {
                         5.height,
                         Text(mData.offer, style: primaryTextStyle(size: 12, color: backgroundColor)),
                         20.height,
-                        OutlineButton(
+                        ElevatedButton(
                           child: Text("Buy now", style: primaryTextStyle(color: backgroundColor, size: 14)),
                           onPressed: () {
                             GPBusinessBuyNowComponent().launch(context);
                           },
-                          borderSide: BorderSide(color: backgroundColor, width: 1),
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+                          // borderSide: BorderSide(color: backgroundColor, width: 1),
+                          // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
                         )
                       ],
                     ).paddingOnly(left: 20, top: 30)

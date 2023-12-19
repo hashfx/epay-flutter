@@ -60,13 +60,15 @@ class GPHomeScreenState extends State<GPHomeScreen> {
     scrollController.addListener(() {
       log(isNewPaymentHide);
 
-      if (scrollController.position.userScrollDirection == ScrollDirection.reverse) {
+      if (scrollController.position.userScrollDirection ==
+          ScrollDirection.reverse) {
         if (!mIsScrollingDown) {
           mIsScrollingDown = true;
           isNewPaymentHide = false;
         }
       }
-      if (scrollController.position.userScrollDirection == ScrollDirection.forward) {
+      if (scrollController.position.userScrollDirection ==
+          ScrollDirection.forward) {
         if (mIsScrollingDown) {
           mIsScrollingDown = false;
           isNewPaymentHide = true;
@@ -118,13 +120,19 @@ class GPHomeScreenState extends State<GPHomeScreen> {
         elevation: 0,
         backgroundColor: backgroundColor,
         leading: IconButton(
-          icon: Image.asset(GP_qr_home_icon, height: 22, width: 22, color: GPColorBlack),
+          icon: Image.asset(GP_qr_home_icon,
+              height: 22, width: 22, color: GPColorBlack),
           onPressed: () {
             GPQrScannerComponent().launch(context);
           },
         ),
         actions: [
-          Hero(tag: 'profile', child: CircleAvatar(backgroundImage: AssetImage(GPAY_user), radius: 15).paddingRight(10)).onTap(() {
+          Hero(
+                  tag: 'profile',
+                  child: CircleAvatar(
+                          backgroundImage: AssetImage(GPAY_user), radius: 15)
+                      .paddingRight(10))
+              .onTap(() {
             callProfileScreen();
           }),
         ],
@@ -140,7 +148,9 @@ class GPHomeScreenState extends State<GPHomeScreen> {
               highlightHeader: Container(
                 height: 20,
                 width: MediaQuery.of(context).size.width,
-                decoration: boxDecorationWithRoundedCorners(backgroundColor: backgroundColor, borderRadius: radiusOnly(topRight: 24, topLeft: 24)),
+                decoration: boxDecorationWithRoundedCorners(
+                    backgroundColor: backgroundColor,
+                    borderRadius: radiusOnly(topRight: 24, topLeft: 24)),
               ),
             ),
             child: ListView(
@@ -150,42 +160,67 @@ class GPHomeScreenState extends State<GPHomeScreen> {
                 Container(
                   child: Column(
                     children: [
-                      Container(height: 2, width: 25, color: Colors.grey[300]).paddingTop(10),
+                      Container(height: 2, width: 25, color: Colors.grey[300])
+                          .paddingTop(10),
                       10.height,
-                      Align(alignment: Alignment.centerLeft, child: Text('People', style: primaryTextStyle(size: 20, color: GPColorBlack)).paddingLeft(20)),
+                      Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text('People',
+                                  style: primaryTextStyle(
+                                      size: 20, color: GPColorBlack))
+                              .paddingLeft(20)),
                       15.height,
                       HomeListComponent(getPeopleList: getPeopleList),
                       20.height,
-                      MySeparator(color: Colors.grey).paddingOnly(left: 20, right: 20),
+                      MySeparator(color: Colors.grey)
+                          .paddingOnly(left: 20, right: 20),
                       20.height,
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Business and bills', style: primaryTextStyle(size: 20, color: GPColorBlack)),
-                          RaisedButton.icon(
+                          Text('Business and bills',
+                              style: primaryTextStyle(
+                                  size: 20, color: GPColorBlack)),
+                          TextButton.icon(
                             onPressed: () {
                               ExploreScreen(tabIndex: 0).launch(context);
                             },
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(16.0))),
-                            label: Text('Explore', style: primaryTextStyle(size: 14, color: GPAppColor)),
+                            style: TextButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(16.0)),
+                              ),
+                              elevation: 0,
+                              // textColor: GPAppColor,
+                              backgroundColor: GPLightBlue,
+                              splashFactory: InkRipple
+                                  .splashFactory, // Optional: Mimic the splash effect of FlatButton
+                            ),
+                            label: Text('Explore',
+                                style: primaryTextStyle(
+                                    size: 14, color: GPAppColor)),
                             icon: Icon(Icons.shopping_bag, color: GPAppColor),
-                            elevation: 0,
-                            textColor: GPAppColor,
-                            splashColor: GPAppColor,
-                            color: GPLightBlue,
-                          ),
+                          )
                         ],
                       ).paddingOnly(left: 20, right: 20),
                       15.height,
-                      Container(height: 45, width: context.width(), child: BusinessTypeList(getBusinessTypeList: getBusinessTypeList)),
+                      Container(
+                          height: 45,
+                          width: context.width(),
+                          child: BusinessTypeList(
+                              getBusinessTypeList: getBusinessTypeList)),
                       20.height,
                       BusinessList(getBusinessList: getBusinessList),
                       20.height,
-                      MySeparator(color: Colors.grey).paddingOnly(left: 20, right: 20),
+                      MySeparator(color: Colors.grey)
+                          .paddingOnly(left: 20, right: 20),
                       20.height,
                       Align(
                         alignment: Alignment.centerLeft,
-                        child: Text('Promotions', style: primaryTextStyle(size: 20, color: GPColorBlack)).paddingLeft(20),
+                        child: Text('Promotions',
+                                style: primaryTextStyle(
+                                    size: 20, color: GPColorBlack))
+                            .paddingLeft(20),
                       ),
                       20.height,
                       PromotionsList(getPromotionsList: getPromotionsList),
@@ -195,7 +230,11 @@ class GPHomeScreenState extends State<GPHomeScreen> {
                         children: [
                           Icon(Icons.av_timer_sharp, color: GPAppColor),
                           10.width,
-                          Text("See all payments activity", style: primaryTextStyle(size: 14, color: GPColorBlack, weight: FontWeight.bold)),
+                          Text("See all payments activity",
+                              style: primaryTextStyle(
+                                  size: 14,
+                                  color: GPColorBlack,
+                                  weight: FontWeight.bold)),
                           Spacer(),
                           Icon(Icons.navigate_next, color: GPColorBlack),
                         ],
@@ -206,9 +245,14 @@ class GPHomeScreenState extends State<GPHomeScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.account_balance_outlined, color: GPAppColor),
+                          Icon(Icons.account_balance_outlined,
+                              color: GPAppColor),
                           10.width,
-                          Text("Check account balance", style: primaryTextStyle(size: 14, color: GPColorBlack, weight: FontWeight.bold)),
+                          Text("Check account balance",
+                              style: primaryTextStyle(
+                                  size: 14,
+                                  color: GPColorBlack,
+                                  weight: FontWeight.bold)),
                           Spacer(),
                           Icon(Icons.navigate_next, color: GPColorBlack),
                         ],
@@ -216,52 +260,81 @@ class GPHomeScreenState extends State<GPHomeScreen> {
                       20.height,
                       Stack(
                         children: [
-                          commonCacheImageWidget(GP_footer, fit: BoxFit.cover, height: 280, width: context.width()),
+                          commonCacheImageWidget(GP_footer,
+                              fit: BoxFit.cover,
+                              height: 280,
+                              width: context.width()),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Invite your friends", style: primaryTextStyle(size: 16, color: GPColorBlack, weight: FontWeight.bold)),
+                              Text("Invite your friends",
+                                  style: primaryTextStyle(
+                                      size: 16,
+                                      color: GPColorBlack,
+                                      weight: FontWeight.bold)),
                               5.height,
-                              Text('${"Get "}\u{20B9}${"201 after each friend's first payment"}', style: primaryTextStyle(size: 14, color: GPColorBlack)),
+                              Text(
+                                  '${"Get "}\u{20B9}${"201 after each friend's first payment"}',
+                                  style: primaryTextStyle(
+                                      size: 14, color: GPColorBlack)),
                               10.height,
-                              FlatButton(
-                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0), side: BorderSide(color: Colors.grey[300]!)),
-                                color: Colors.white,
-                                textColor: GPColorBlack,
+                              TextButton(
+                                style: TextButton.styleFrom(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(18.0),
+                                    side: BorderSide(color: Colors.grey[300]!),
+                                  ),
+                                  backgroundColor: Colors.white,
+                                  // textColor: GPColorBlack, // Text color
+                                ),
                                 onPressed: () async {
-                                  await Share.share('${"Get "}\u{20B9}${"201 after each friend's first payment"}');
+                                  await Share.share(
+                                      '${"Get "}\u{20B9}${"201 after each friend's first payment"}');
                                 },
-                                child: Text("Invite", style: TextStyle(fontSize: 12.0)),
-                              ),
+                                child: Text(
+                                  "Invite",
+                                  style: TextStyle(fontSize: 12.0),
+                                ),
+                              )
                             ],
                           ).paddingAll(30),
                         ],
                       ),
                     ],
                   ),
-                  decoration: BoxDecoration(border: Border.all(color: backgroundColor), borderRadius: BorderRadius.all(Radius.circular(20))),
+                  decoration: BoxDecoration(
+                      border: Border.all(color: backgroundColor),
+                      borderRadius: BorderRadius.all(Radius.circular(20))),
                 ),
               ],
             ),
           ),
-          RaisedButton(
-            color: GPAppColor,
-            padding: EdgeInsets.only(top: 10, bottom: 10, right: 20, left: 20),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(28.0))),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(Icons.add, color: backgroundColor, size: 26),
-                5.width,
-                Text('New Payment', style: primaryTextStyle(size: 14, color: backgroundColor)),
-              ],
-            ),
-            elevation: 10,
-            onPressed: () {
-              ExploreScreen().launch(context);
-            },
-          ).visible(isNewPaymentHide).paddingOnly(bottom: 16),
-        ],
+ElevatedButton(
+  style: ElevatedButton.styleFrom(
+    // color: GPAppColor,
+    padding: EdgeInsets.only(top: 10, bottom: 10, right: 20, left: 20),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(28.0)),
+    ),
+    elevation: 10,
+  ),
+  onPressed: () {
+    ExploreScreen().launch(context);
+  },
+  child: Row(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      Icon(Icons.add, color: backgroundColor, size: 26),
+      SizedBox(width: 5),
+      Text(
+        'New Payment',
+        style: primaryTextStyle(size: 14, color: backgroundColor),
+      ),
+    ],
+  ),
+).visible(isNewPaymentHide).paddingOnly(bottom: 16)]
+
+        // ],
       ),
     );
   }

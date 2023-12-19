@@ -97,11 +97,11 @@ Widget scanMySpotCodeWidget(BuildContext context) {
       15.height,
       Text("Scan my Spot Code to connect", style: primaryTextStyle(size: 14, color: GPColorBlack)),
       60.height,
-      FlatButton(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
-        color: GPAppColor,
-        textColor: backgroundColor,
-        padding: EdgeInsets.all(8),
+      ElevatedButton(
+        // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
+        // color: GPAppColor,
+        // textColor: backgroundColor,
+        // padding: EdgeInsets.all(8),
         onPressed: () async {
           await Share.share('share Link');
         },
@@ -122,11 +122,11 @@ Widget scanMySpotCodeWidget(BuildContext context) {
         ),
       ).paddingOnly(left: 60, right: 60),
       10.height,
-      FlatButton(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0), side: BorderSide(color: Colors.grey[300]!)),
-        color: Colors.white,
-        textColor: Colors.grey,
-        padding: EdgeInsets.all(8),
+      ElevatedButton(
+        // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0), side: BorderSide(color: Colors.grey[300]!)),
+        // color: Colors.white,
+        // textColor: Colors.grey,
+        // padding: EdgeInsets.all(8),
         onPressed: () {},
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -160,11 +160,11 @@ Widget qrScannerWidget() {
       20.height,
       Text("Scan my code to pay", style: primaryTextStyle(size: 14, color: GPColorBlack)),
       60.height,
-      FlatButton(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0), side: BorderSide(color: Colors.grey[300]!)),
-        color: Colors.white,
-        textColor: Colors.grey,
-        padding: EdgeInsets.all(8),
+      ElevatedButton(
+        // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0), side: BorderSide(color: Colors.grey[300]!)),
+        // color: Colors.white,
+        // textColor: Colors.grey,
+        // padding: EdgeInsets.all(8),
         onPressed: () {},
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
